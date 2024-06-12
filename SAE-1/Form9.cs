@@ -33,5 +33,10 @@ namespace SAE_1
         {
 
         }
+
+        private void btnReprendre_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

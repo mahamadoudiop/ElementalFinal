@@ -78,6 +78,7 @@
             btnReprendre.TabIndex = 9;
             btnReprendre.Text = "Reprendre";
             btnReprendre.UseVisualStyleBackColor = false;
+            btnReprendre.Click += btnReprendre_Click;
             // 
             // btnOptions
             // 
