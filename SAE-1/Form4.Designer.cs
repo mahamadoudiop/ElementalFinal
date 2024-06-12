@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
             btnSauv2 = new Button();
             btnSauv3 = new Button();
-            pbCadreSauv = new PictureBox();
             btnSauv1 = new Button();
             lblAncienneSauv = new Label();
-            ((System.ComponentModel.ISupportInitialize)pbCadreSauv).BeginInit();
+            button2 = new Button();
+            btnRetour = new Button();
             SuspendLayout();
             // 
             // btnSauv2
@@ -55,15 +56,6 @@
             btnSauv3.TabIndex = 4;
             btnSauv3.Text = "Sauvgarde 3";
             btnSauv3.UseVisualStyleBackColor = false;
-            // 
-            // pbCadreSauv
-            // 
-            pbCadreSauv.Image = Properties.Resources.cadre;
-            pbCadreSauv.Location = new Point(89, 48);
-            pbCadreSauv.Name = "pbCadreSauv";
-            pbCadreSauv.Size = new Size(473, 617);
-            pbCadreSauv.TabIndex = 6;
-            pbCadreSauv.TabStop = false;
             // 
             // btnSauv1
             // 
@@ -88,23 +80,50 @@
             lblAncienneSauv.TabIndex = 7;
             lblAncienneSauv.Text = "Ancienne Sauvegarde";
             // 
+            // button2
+            // 
+            button2.BackColor = Color.CadetBlue;
+            button2.FlatAppearance.BorderSize = 0;
+            button2.FlatStyle = FlatStyle.Flat;
+            button2.Image = (Image)resources.GetObject("button2.Image");
+            button2.Location = new Point(2, 2);
+            button2.Name = "button2";
+            button2.Size = new Size(67, 73);
+            button2.TabIndex = 8;
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
+            // 
+            // btnRetour
+            // 
+            btnRetour.BackColor = Color.CadetBlue;
+            btnRetour.FlatAppearance.BorderSize = 0;
+            btnRetour.FlatStyle = FlatStyle.Flat;
+            btnRetour.Image = (Image)resources.GetObject("btnRetour.Image");
+            btnRetour.Location = new Point(12, 652);
+            btnRetour.Name = "btnRetour";
+            btnRetour.Size = new Size(70, 67);
+            btnRetour.TabIndex = 9;
+            btnRetour.UseVisualStyleBackColor = false;
+            btnRetour.Click += btnRetour_Click;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(609, 731);
+            Controls.Add(btnRetour);
+            Controls.Add(button2);
             Controls.Add(lblAncienneSauv);
             Controls.Add(btnSauv3);
             Controls.Add(btnSauv2);
             Controls.Add(btnSauv1);
-            Controls.Add(pbCadreSauv);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "Form4";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form4";
-            ((System.ComponentModel.ISupportInitialize)pbCadreSauv).EndInit();
+            Load += Form4_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -112,8 +131,9 @@
         #endregion
         private Button btnSauv2;
         private Button btnSauv3;
-        private PictureBox pbCadreSauv;
         private Button btnSauv1;
         private Label lblAncienneSauv;
+        private Button button2;
+        private Button btnRetour;
     }
 }

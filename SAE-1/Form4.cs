@@ -29,8 +29,35 @@ namespace SAE_1
             // Affiche Form1
             form5.Show();
 
-            // Masque Form2
+            // Masque FormMenu
             this.Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            FormMenu FormMenu = new FormMenu();
+
+            // Affiche Form1
+            FormMenu.Show();
+
+            // Masque FormMenu
+            this.Close();
+        }
+
+        private void btnRetour_Click(object sender, EventArgs e)
+        {
+            Form3 form3 = new Form3();
+
+            // Affiche Form1
+            form3.Show();
+
+            // Masque FormMenu
+            this.Close();
+        }
+
+        private void Form4_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

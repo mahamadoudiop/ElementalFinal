@@ -30,12 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
             btnContinuer = new Button();
-            pbCadreSauv = new PictureBox();
             lblSauvegarde = new Label();
             pictureBox1 = new PictureBox();
             label1 = new Label();
             label2 = new Label();
-            ((System.ComponentModel.ISupportInitialize)pbCadreSauv).BeginInit();
+            btnRetour = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
@@ -48,15 +47,6 @@
             btnContinuer.TabIndex = 9;
             btnContinuer.Text = "Continuer ";
             btnContinuer.UseVisualStyleBackColor = false;
-            // 
-            // pbCadreSauv
-            // 
-            pbCadreSauv.Image = Properties.Resources.cadre;
-            pbCadreSauv.Location = new Point(89, 48);
-            pbCadreSauv.Name = "pbCadreSauv";
-            pbCadreSauv.Size = new Size(473, 617);
-            pbCadreSauv.TabIndex = 10;
-            pbCadreSauv.TabStop = false;
             // 
             // lblSauvegarde
             // 
@@ -101,24 +91,36 @@
             label2.TabIndex = 17;
             label2.Text = "SCORE ATTEINT";
             // 
+            // btnRetour
+            // 
+            btnRetour.BackColor = Color.CadetBlue;
+            btnRetour.FlatAppearance.BorderSize = 0;
+            btnRetour.FlatStyle = FlatStyle.Flat;
+            btnRetour.Image = (Image)resources.GetObject("btnRetour.Image");
+            btnRetour.Location = new Point(12, 652);
+            btnRetour.Name = "btnRetour";
+            btnRetour.Size = new Size(70, 67);
+            btnRetour.TabIndex = 18;
+            btnRetour.UseVisualStyleBackColor = false;
+            btnRetour.Click += btnRetour_Click;
+            // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(609, 731);
+            Controls.Add(btnRetour);
             Controls.Add(label2);
             Controls.Add(label1);
             Controls.Add(pictureBox1);
             Controls.Add(lblSauvegarde);
             Controls.Add(btnContinuer);
-            Controls.Add(pbCadreSauv);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             Name = "Form5";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form5";
-            ((System.ComponentModel.ISupportInitialize)pbCadreSauv).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -126,10 +128,10 @@
 
         #endregion
         private Button btnContinuer;
-        private PictureBox pbCadreSauv;
         private Label lblSauvegarde;
         private PictureBox pictureBox1;
         private Label label1;
         private Label label2;
+        private Button btnRetour;
     }
 }

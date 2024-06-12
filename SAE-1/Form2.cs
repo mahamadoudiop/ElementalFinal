@@ -10,22 +10,57 @@ using System.Windows.Forms;
 
 namespace SAE_1
 {
-    public partial class Form2 : Form
+    public partial class FormMenu : Form
     {
-        public Form2()
+        public FormMenu()
         {
             InitializeComponent();
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnOption_Click(object sender, EventArgs e)
+        {
+            Form6 form6 = new Form6();
+            form6.Show();
+            this.Close();
+        }
+
+        private void btnQuiter_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+ 
+
+
+        private void btnPartie_Click(object sender, EventArgs e)
         {
             Form3 form3 = new Form3();
-
-            // Affiche Form1
             form3.Show();
-
-            // Masque Form2
             this.Hide();
+        }
+
+        private void FormMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FormMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Voulez-vous vraiment quitter le jeu ?",
+                                                   "Confirmer la fermeture",
+                                                   MessageBoxButtons.YesNo,
+                                                   MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2); // on selection le button 2 pour eviter que l'utiliseur click deux fois sur entrer et donc quitte par erreur l'aplication
+
+            if (result == DialogResult.No)
+            {
+                e.Cancel = true;
+
+            }
+            else
+            { 
+                Application.Exit();
+             }
         }
     }
 }

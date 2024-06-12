@@ -1,6 +1,6 @@
 ﻿namespace SAE_1
 {
-    partial class Form3
+    partial class FormEnregistrement
     {
         /// <summary>
         /// Required designer variable.
@@ -28,33 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
-            btnSauvegarde = new Button();
-            btnJouer = new Button();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEnregistrement));
+            grbPseudo = new GroupBox();
+            txtPseudo = new TextBox();
             btnRetour = new Button();
+            btnJouer = new Button();
+            grbPseudo.SuspendLayout();
             SuspendLayout();
             // 
-            // btnSauvegarde
+            // grbPseudo
             // 
-            btnSauvegarde.BackColor = Color.LightBlue;
-            btnSauvegarde.Location = new Point(207, 97);
-            btnSauvegarde.Name = "btnSauvegarde";
-            btnSauvegarde.Size = new Size(202, 50);
-            btnSauvegarde.TabIndex = 0;
-            btnSauvegarde.Text = "SAUVEGARDE";
-            btnSauvegarde.UseVisualStyleBackColor = false;
-            btnSauvegarde.Click += button1_Click;
+            grbPseudo.Controls.Add(txtPseudo);
+            grbPseudo.Location = new Point(132, 63);
+            grbPseudo.Name = "grbPseudo";
+            grbPseudo.Size = new Size(351, 135);
+            grbPseudo.TabIndex = 0;
+            grbPseudo.TabStop = false;
+            grbPseudo.Text = "ENTREZ VOTRE PSEUDO";
             // 
-            // btnJouer
+            // txtPseudo
             // 
-            btnJouer.BackColor = Color.LightBlue;
-            btnJouer.Location = new Point(207, 225);
-            btnJouer.Name = "btnJouer";
-            btnJouer.Size = new Size(202, 50);
-            btnJouer.TabIndex = 1;
-            btnJouer.Text = "JOUER";
-            btnJouer.UseVisualStyleBackColor = false;
-            btnJouer.Click += btnJouer_Click;
+            txtPseudo.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPseudo.Location = new Point(45, 56);
+            txtPseudo.Name = "txtPseudo";
+            txtPseudo.Size = new Size(251, 25); 
+            txtPseudo.TabIndex = 0;
+            txtPseudo.TextChanged += txtPseudo_TextChanged;
             // 
             // btnRetour
             // 
@@ -65,32 +64,45 @@
             btnRetour.Location = new Point(12, 317);
             btnRetour.Name = "btnRetour";
             btnRetour.Size = new Size(70, 67);
-            btnRetour.TabIndex = 2;
+            btnRetour.TabIndex = 3;
             btnRetour.UseVisualStyleBackColor = false;
             btnRetour.Click += btnRetour_Click;
             // 
-            // Form3
+            // btnJouer
+            // 
+            btnJouer.Location = new Point(216, 244);
+            btnJouer.Name = "btnJouer";
+            btnJouer.Size = new Size(152, 36);
+            btnJouer.TabIndex = 4;
+            btnJouer.Text = "JOUER";
+            btnJouer.UseVisualStyleBackColor = true;
+            btnJouer.Click += btnJouer_Click;
+            // 
+            // FormEnregistrement
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(609, 396);
-            Controls.Add(btnRetour);
             Controls.Add(btnJouer);
-            Controls.Add(btnSauvegarde);
+            Controls.Add(btnRetour);
+            Controls.Add(grbPseudo);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
-            Name = "Form3";
+            Name = "FormEnregistrement";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form3";
-            Load += Form3_Load;
+            Text = "Enregistrement";
+            Load += FormEnregistrement_Load;
+            grbPseudo.ResumeLayout(false);
+            grbPseudo.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Button btnSauvegarde;
-        private Button btnJouer;
+        private GroupBox grbPseudo;
+        private TextBox txtPseudo;
         private Button btnRetour;
+        private Button btnJouer;
     }
 }

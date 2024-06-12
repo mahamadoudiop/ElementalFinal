@@ -1,6 +1,6 @@
 ﻿namespace SAE_1
 {
-    partial class Form1
+    partial class FormAccueil
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormAccueil));
             btnJouer = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
+            lblNomJeu = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -55,7 +56,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(435, 138);
+            pictureBox1.Location = new Point(508, 138);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(58, 84);
             pictureBox1.TabIndex = 2;
@@ -82,18 +83,32 @@
             // pictureBox4
             // 
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(104, 138);
+            pictureBox4.Location = new Point(88, 138);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(55, 76);
             pictureBox4.TabIndex = 5;
             pictureBox4.TabStop = false;
             // 
-            // Form1
+            // lblNomJeu
+            // 
+            lblNomJeu.AutoSize = true;
+            lblNomJeu.BackColor = Color.Transparent;
+            lblNomJeu.BorderStyle = BorderStyle.FixedSingle;
+            lblNomJeu.FlatStyle = FlatStyle.Flat;
+            lblNomJeu.Font = new Font("Frank Ruehl CLM", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 177);
+            lblNomJeu.Location = new Point(149, 162);
+            lblNomJeu.Name = "lblNomJeu";
+            lblNomJeu.Size = new Size(313, 32);
+            lblNomJeu.TabIndex = 8;
+            lblNomJeu.Text = "ELEMENTAL ODYSSEY";
+            // 
+            // FormAccueil
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(609, 426);
+            Controls.Add(lblNomJeu);
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
@@ -102,15 +117,15 @@
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(3, 2, 3, 2);
             MaximizeBox = false;
-            Name = "Form1";
+            Name = "FormAccueil";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
-            Load += Form1_Load;
+            Text = "FormAccueil";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -120,5 +135,6 @@
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
+        private Label lblNomJeu;
     }
 }

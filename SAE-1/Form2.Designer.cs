@@ -1,6 +1,6 @@
 ﻿namespace SAE_1
 {
-    partial class Form2
+    partial class FormMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -28,23 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
             btnPartie = new Button();
             btnOption = new Button();
             btnQuiter = new Button();
-            panel1 = new Panel();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            lblMenu = new Label();
             SuspendLayout();
-            // 
-            // pictureBox1
-            // 
-            pictureBox1.Dock = DockStyle.Fill;
-            pictureBox1.Image = Properties.Resources.menu;
-            pictureBox1.Location = new Point(0, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(609, 731);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
             // 
             // btnPartie
             // 
@@ -55,7 +43,7 @@
             btnPartie.TabIndex = 1;
             btnPartie.Text = "PARTIE";
             btnPartie.UseVisualStyleBackColor = false;
-            btnPartie.Click += button1_Click;
+            btnPartie.Click += btnPartie_Click;
             // 
             // btnOption
             // 
@@ -66,6 +54,7 @@
             btnOption.TabIndex = 2;
             btnOption.Text = "OPTION";
             btnOption.UseVisualStyleBackColor = false;
+            btnOption.Click += btnOption_Click;
             // 
             // btnQuiter
             // 
@@ -76,41 +65,46 @@
             btnQuiter.TabIndex = 3;
             btnQuiter.Text = "QUITER";
             btnQuiter.UseVisualStyleBackColor = false;
+            btnQuiter.Click += btnQuiter_Click;
             // 
-            // panel1
+            // lblMenu
             // 
-            panel1.Dock = DockStyle.Fill;
-            panel1.Location = new Point(0, 0);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(609, 731);
-            panel1.TabIndex = 4;
+            lblMenu.AutoSize = true;
+            lblMenu.BackColor = Color.Transparent;
+            lblMenu.BorderStyle = BorderStyle.FixedSingle;
+            lblMenu.Font = new Font("Courier New", 21.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblMenu.ForeColor = SystemColors.ControlText;
+            lblMenu.Location = new Point(270, 97);
+            lblMenu.Name = "lblMenu";
+            lblMenu.Size = new Size(85, 35);
+            lblMenu.TabIndex = 8;
+            lblMenu.Text = "MENU";
             // 
-            // Form2
+            // FormMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.CadetBlue;
             ClientSize = new Size(609, 731);
+            Controls.Add(lblMenu);
             Controls.Add(btnQuiter);
             Controls.Add(btnOption);
             Controls.Add(btnPartie);
-            Controls.Add(pictureBox1);
-            Controls.Add(panel1);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
-            Name = "Form2";
+            Name = "FormMenu";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form2";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            Text = "MENU";
+            FormClosing += FormMenu_FormClosing;
+            Load += FormMenu_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
-
-        private PictureBox pictureBox1;
         private Button btnPartie;
         private Button btnOption;
         private Button btnQuiter;
-        private Panel panel1;
+        private Label lblMenu;
     }
 }

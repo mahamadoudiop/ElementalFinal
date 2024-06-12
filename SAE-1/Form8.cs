@@ -7,25 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.DataFormats;
 
 namespace SAE_1
 {
-    public partial class Form3 : Form
+    public partial class FormEnregistrement : Form
     {
-        public Form3()
+        public FormEnregistrement()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Form4 form4 = new Form4();
-
-            // Affiche FormAccueille
-            form4.Show();
-
-            // Masque FormMenu
-            this.Hide();
         }
 
         private void btnRetour_Click(object sender, EventArgs e)
@@ -35,16 +25,19 @@ namespace SAE_1
             this.Close();
         }
 
-        
-
         private void btnJouer_Click(object sender, EventArgs e)
         {
-            FormEnregistrement FormEnregistrement = new FormEnregistrement();  
-            FormEnregistrement.Show();
-            this.Hide();
+            FormJeu formJeu = new FormJeu(txtPseudo.Text);
+            formJeu.Show();
+            this.Close();
         }
 
-        private void Form3_Load(object sender, EventArgs e)
+        private void txtPseudo_TextChanged(object sender, EventArgs e)
+        {
+            //TextBox txtPseudo = (TextBox)sender;
+        }
+
+        private void FormEnregistrement_Load(object sender, EventArgs e)
         {
 
         }

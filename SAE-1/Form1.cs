@@ -1,17 +1,11 @@
 namespace SAE_1
 {
-    public partial class Form1 : Form
+    public partial class FormAccueil : Form
     {
-        public Form1()
+        public FormAccueil()
         {
             InitializeComponent();
         }
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
@@ -22,15 +16,32 @@ namespace SAE_1
 
         }
 
-        private void btnJouer_Click(object sender, EventArgs e)
+        //        private void btnJouer_Click(object sender, EventArgs e)
+        //        {
+        //            FormMenu FormMenu = new FormMenu();
+
+        //            // Affiche FormAccueille
+        //            FormMenu.Show();
+
+        //            // Masque FormMenu
+        //            this.Hide();
+        //        }
+        //    }
+        //}
+
+
+       
+          private void btnJouer_Click(object sender, EventArgs e)
         {
-            Form2 form2 = new Form2();
+            FormMenu FormMenu = new FormMenu();
 
-            // Affiche Form1
-            form2.Show();
+            // Affiche FormAccueille
+            FormMenu.Show();
 
-            // Masque Form2
+            // Masque FormMenu
             this.Hide();
         }
+
+        
     }
 }

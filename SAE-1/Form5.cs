@@ -16,5 +16,16 @@ namespace SAE_1
         {
             InitializeComponent();
         }
+
+        private void btnRetour_Click(object sender, EventArgs e)
+        {
+            Form4 form4 = new Form4();
+
+            // Affiche Form1
+            form4.Show();
+
+            // Masque Form2
+            this.Close();
+        }
     }
 }
