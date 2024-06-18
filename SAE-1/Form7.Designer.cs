@@ -95,7 +95,6 @@
             lblPseudo.TabIndex = 4;
             lblPseudo.Text = "Pseudo";
             lblPseudo.TextAlign = ContentAlignment.MiddleCenter;
-            lblPseudo.Click += label1_Click;
             // 
             // groupBox1
             // 
@@ -134,7 +133,9 @@
             Name = "FormJeu";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Jeu";
+            FormClosing += FormJeu_FormClosing;
             Load += Form7_Load;
+            KeyDown += FormJeu_KeyDown;
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
             PerformLayout();
