@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using SAE1BibliothequeJeu;
 
 namespace SAE_1
 {
     public partial class FormJeu : Form
     {
+        private Partie NouvellePartie;
+
         private Point pacManPosition;
         private Color pacManColor;
         private const int labyrintheLignes = 17; // Nombre de lignes du labyrinthe
@@ -38,7 +41,7 @@ namespace SAE_1
             { 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W', 'W' }
         };
 
-        public FormJeu(string nomjoueur)
+        public FormJeu(Partie P)
         {
             InitializeComponent();
             pnlLabyrinthe.Resize += new EventHandler(pnlLabyrinthe_Resize);
@@ -47,6 +50,9 @@ namespace SAE_1
 
             pacManPosition = new Point(1 * tileWidth, 1 * tileHeight); // Position initiale de Pac-Man
             pacManColor = Color.Yellow; // Couleur de Pac-Man
+
+            NouvellePartie = P;
+            lblPseudo.Text = P.PseudoJoueur;
         }
 
         private void Form7_Load(object sender, EventArgs e)
