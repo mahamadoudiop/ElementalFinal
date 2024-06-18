@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEnregistrement));
             grbPseudo = new GroupBox();
-            txtPseudo = new TextBox();
+            txtPseudoJoueur = new TextBox();
             btnRetour = new Button();
             btnJouer = new Button();
             grbPseudo.SuspendLayout();
@@ -38,7 +38,7 @@
             // 
             // grbPseudo
             // 
-            grbPseudo.Controls.Add(txtPseudo);
+            grbPseudo.Controls.Add(txtPseudoJoueur);
             grbPseudo.Location = new Point(132, 63);
             grbPseudo.Name = "grbPseudo";
             grbPseudo.Size = new Size(351, 135);
@@ -46,14 +46,14 @@
             grbPseudo.TabStop = false;
             grbPseudo.Text = "ENTREZ VOTRE PSEUDO";
             // 
-            // txtPseudo
+            // txtPseudoJoueur
             // 
-            txtPseudo.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            txtPseudo.Location = new Point(45, 56);
-            txtPseudo.Name = "txtPseudo";
-            txtPseudo.Size = new Size(251, 25); 
-            txtPseudo.TabIndex = 0;
-            txtPseudo.TextChanged += txtPseudo_TextChanged;
+            txtPseudoJoueur.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtPseudoJoueur.Location = new Point(45, 56);
+            txtPseudoJoueur.Name = "txtPseudoJoueur";
+            txtPseudoJoueur.Size = new Size(251, 25);
+            txtPseudoJoueur.TabIndex = 0;
+            txtPseudoJoueur.TextChanged += txtPseudo_TextChanged;
             // 
             // btnRetour
             // 
@@ -101,7 +101,7 @@
         #endregion
 
         private GroupBox grbPseudo;
-        private TextBox txtPseudo;
+        private TextBox txtPseudoJoueur;
         private Button btnRetour;
         private Button btnJouer;
     }

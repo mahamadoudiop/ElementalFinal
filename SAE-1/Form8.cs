@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.DataFormats;
+using SAE1BibliothequeJeu;
 
 namespace SAE_1
 {
@@ -27,14 +28,17 @@ namespace SAE_1
 
         private void btnJouer_Click(object sender, EventArgs e)
         {
-            FormJeu formJeu = new FormJeu(txtPseudo.Text);
-            formJeu.Show();
+            Partie P; FormJeu frmJeu;
+            P = new Partie(txtPseudoJoueur.Text);
+
+            frmJeu = new FormJeu(P);
+            frmJeu.Show();
             this.Close();
         }
 
         private void txtPseudo_TextChanged(object sender, EventArgs e)
         {
-            //TextBox txtPseudo = (TextBox)sender;
+            TextBox txtPseudoJoueur = (TextBox)sender;
         }
 
         private void FormEnregistrement_Load(object sender, EventArgs e)
