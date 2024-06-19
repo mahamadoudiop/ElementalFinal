@@ -20,7 +20,7 @@ namespace SAE_1
         private Image picEnnemi1;
         private Image picEnnemi2;
         private Image picEnnemi3;
-        private int score; // Ajouter une variable pour le score
+        private int score = 0; // Ajouter une variable pour le score
         private Label lblScore; // Ajouter un label pour afficher le score
         private PictureBox picPersonage;
         private Image Perso_Droite;
@@ -82,14 +82,7 @@ namespace SAE_1
             };
             pnlLabyrinthe.Controls.Add(picPersonage); // Ajouter Pac-Man au panel
 
-            lblScore = new Label
-            {
-                Text = "Score: 0",
-                Location = new Point(10, 10),
-                AutoSize = true,
-                ForeColor = Color.White,
-                BackColor = Color.Black
-            };
+            
 
             this.Controls.Add(lblScore);
 
@@ -97,9 +90,9 @@ namespace SAE_1
             picEnnemi2 = Properties.Resources.ennemi_2;
             picEnnemi3 = Properties.Resources.ennemi_3;
 
-            enemies.Add(new Ennemi(10, 5, tileWidth, tileHeight, picEnnemi1));
-            enemies.Add(new Ennemi(15, 8, tileWidth, tileHeight, picEnnemi2));
-            enemies.Add(new Ennemi(5, 10, tileWidth, tileHeight, picEnnemi3));
+            enemies.Add(new Ennemi(10, 5, tileWidth, tileHeight, picEnnemi1, labyrinthe));
+            enemies.Add(new Ennemi(15, 8, tileWidth, tileHeight, picEnnemi2, labyrinthe));
+            enemies.Add(new Ennemi(5, 10, tileWidth, tileHeight, picEnnemi3, labyrinthe));
 
             AjouterPoints(); // Ajouter les points
             AjouterEnnemis();
@@ -219,6 +212,7 @@ namespace SAE_1
                 {
                     // Mettre à jour la position du personnage
                     picPersonage.Location = new Point(newX, newY);
+                    picPersonage.BringToFront();
 
                     // Vérifier s'il y a un point à cet emplacement
                     if (labyrinthe[gridY, gridX] == '.')
@@ -303,8 +297,9 @@ namespace SAE_1
         public PictureBox PictureBox { get; private set; }
         private int tileWidth;
         private int tileHeight;
+        private char[,] labyrinthe;
 
-        public Ennemi(int x, int y, int width, int height, Image image)
+        public Ennemi(int x, int y, int width, int height, Image image, char[,] labyrinthe)
         {
             PictureBox = new PictureBox
             {
@@ -323,7 +318,15 @@ namespace SAE_1
         {
             int newX = PictureBox.Location.X + (variationX * tileWidth);
             int newY = PictureBox.Location.Y + (variationY * tileHeight);
-            PictureBox.Location = new Point(newX, newY);
+
+            int gridX = newX / tileWidth;
+            int gridY = newY / tileHeight;
+
+            if (gridX >= 0 && gridX < labyrinthe.GetLength(1) && gridY >= 0 && gridY < labyrinthe.GetLength(0) && labyrinthe[gridY, gridX] != 'W')
+            {
+                PictureBox.Location = new Point(newX, newY);
+                PictureBox.BringToFront(); // Assurez-vous que les ennemis sont au-dessus
+            }
         }
     }
 
