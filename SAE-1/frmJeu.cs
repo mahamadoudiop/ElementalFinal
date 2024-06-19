@@ -82,7 +82,16 @@ namespace SAE_1
             };
             pnlLabyrinthe.Controls.Add(picPersonage); // Ajouter Pac-Man au panel
 
-            
+            lblScore = new Label
+            {
+                Text = "Score: " + score,
+                AutoSize = true,
+                Location = new Point(10, 10),
+                ForeColor = Color.Black,
+                BackColor = Color.Transparent,
+                Font = new Font("Arial", 10)
+            };
+
 
             this.Controls.Add(lblScore);
 
@@ -143,7 +152,7 @@ namespace SAE_1
                             break;
                         case '.':
                             g.FillRectangle(Brushes.Transparent, j * tileWidth, i * tileHeight, tileWidth, tileHeight);
-                            
+
                             break;
                         case '|':
                             g.FillRectangle(Brushes.LightBlue, j * tileWidth, i * tileHeight, tileWidth, tileHeight);
@@ -191,21 +200,21 @@ namespace SAE_1
 
         private void DeplacerPersonage(int variationX, int variationY)
         {
-            // Récupérer la position actuelle du personnage
             int actuelPosX = picPersonage.Location.X;
             int actuelPosY = picPersonage.Location.Y;
 
-            // Calculer la nouvelle position désirée
-            int newX = actuelPosX + (variationX * tileWidth);
-            int newY = actuelPosY + (variationY * tileHeight);
+            // Calculer la nouvelle position désirée (avancer d'une seule unité de grille)
+            int newX = actuelPosX + (variationX * tileWidth / 2);
+            int newY = actuelPosY + (variationY * tileHeight / 2);
 
             // Vérifier les limites du labyrinthe visuel
-            if (newX >= 0 && newX + tileWidth <= pnlLabyrinthe.Width &&
-                newY >= 0 && newY + tileHeight <= pnlLabyrinthe.Height)
+            if (newX >= 0 && newX + tileWidth / 2 <= pnlLabyrinthe.Width &&
+                newY >= 0 && newY + tileHeight / 2 <= pnlLabyrinthe.Height)
             {
                 // Convertir les nouvelles coordonnées en indices de la grille
-                int gridX = newX / tileWidth;
-                int gridY = newY / tileHeight;
+                int gridX = newX / (tileWidth / 2);
+                int gridY = newY / (tileHeight / 2);
+
 
                 // Vérifier si la case de la grille est accessible (pas un mur)
                 if (gridX >= 0 && gridX < labyrintheColonnes && gridY >= 0 && gridY < labyrintheLignes && labyrinthe[gridY, gridX] != 'W')
@@ -236,7 +245,10 @@ namespace SAE_1
                         }
                     }
                 }
+                picPersonage.Location = new Point(newX, newY);
+
             }
+
 
         }
 
@@ -291,6 +303,10 @@ namespace SAE_1
         {
             Application.Exit();
         }
+
+       
+
+        
     }
     public class Ennemi
     {
@@ -322,13 +338,12 @@ namespace SAE_1
             int gridX = newX / tileWidth;
             int gridY = newY / tileHeight;
 
-            if (gridX >= 0 && gridX < labyrinthe.GetLength(1) && gridY >= 0 && gridY < labyrinthe.GetLength(0) && labyrinthe[gridY, gridX] != 'W')
-            {
-                PictureBox.Location = new Point(newX, newY);
-                PictureBox.BringToFront(); // Assurez-vous que les ennemis sont au-dessus
-            }
+            //if (gridX >= 0 && gridX < labyrinthe.GetLength(1) && gridY >= 0 && gridY < labyrinthe.GetLength(0) && labyrinthe[gridY, gridX] != 'W')
+            //{
+            //    PictureBox.Location = new Point(newX, newY);
+            //    PictureBox.BringToFront(); // Assurez-vous que les ennemis sont au-dessus
+            //}
         }
     }
 
 }
-
