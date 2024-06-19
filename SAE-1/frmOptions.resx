@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--
+    Microsoft ResX Schema 
+
+    Version 2.0
+
+    The primary goals of this format is to allow a simple XML format
+    that is mostly human readable. The generation and parsing of the
+    various data types are done through the TypeConverter classes
+    associated with the data types.
+
+    Example:
+
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+
+    There are any number of "resheader" rows that contain simple
+    name/value pairs.
+
+    Each data row contains a name, and value. The row also contains a
+    type or mimetype. Type corresponds to a .NET class that support
+    text/value conversion through the TypeConverter architecture.
+    Classes that don't support this are serialized and stored with the
+    mimetype set.
+
+    The mimetype is used for serialized objects, and tells the
+    ResXResourceReader how to depersist the object. This is currently not
+    extensible. For a given mimetype the value must be set accordingly:
+
+    Note - application/x-microsoft.net.object.binary.base64 is the format
+    that the ResXResourceWriter will generate, however the reader can
+    read any of the formats listed below.
+
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btnRetour.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAADoAAAA2CAYAAACWeYpTAAABgmlDQ1BJQ0MgcHJvZmlsZQAAKM+VkUso
+        RFEcxn9zEWlkYRYSdcujFBskSw2RojQzymDh3jtmqLnXdO/IxlLZKguPjdfCxpqtha1SyqNkbWFFbKTr
+        f+6omdQop07n13fO93XOd0A7yFq2VzkItpN3Y6NRfTo5o1c/o9FCHa10GpaXm4iPJCg7Pm4JqfWmW2Xx
+        v1GXWvAsCOnCg1bOzQvPC/ev5nOKd4Qj1qKREj4V7nLlgsL3SjcL/KI4E7CmMiNuIjYkHBHWMyVslrC1
+        6NrCfcJtKduRfG26wCnFa4rt7Ir1c0/1wvCCMxVXusxmRhljgkl0TFZYIkueblkdUTxish8t428K/JPi
+        MsW1hCWOYZaxMQI/6g9+d+ule3sKSeEoVD35/ls7VG/B16bvfx76/tcRVDzChVP0Lx/AwLvom0WtbR/q
+        1+HssqiZ23C+AY0POcM1AqlCppZOw+uJfFMSGq6hdrbQ288+x3eQkK7Gr2B3Dzoykj1X5t01pb39eSbo
+        j+g36Yxy1g575ucAAAAJcEhZcwAACwwAAAsMAT9AIsgAAAAHdElNRQfoAh0TKwSBDcs0AAABjUlEQVRo
+        Q+2P220DMQwE3VFKcVnpwq0mIMCFFxvRkgNaJ0FcYD7uxNfcPpWv+/1nJfys/LSWXYmflR8s+H48LqVE
+        s6Ki+J5FiWYnWjiLEs1OtHAWJZqdaOEsSjQ70cJZlGh2dGE2mB+hdX5WfnRhNpgfoXV+Vn54aSYlKkwT
+        zU4kEFGiqycSiCjR1RMJRJRoLzxkBG9LC+aWqPC2KDcbGBCBOm9Pi+7Hd8Tb93CzgQERqPP2tOh+fEcM
+        38NNBhp1gL7j28ekJdoTMXwPNxlo1AH6jm8fk5ZoT0T3Hi420KCNSu89i9E9Wud6z3CxgQZtVHrvWYzu
+        0TrX+78g0PpP07qB0TrXPECUHw0exoW7ofefJ8pyXLAr6nGuKL53p0TxoAW7oh7niQKW5cLd0PvPEUW4
+        yGBZbojQ+lXAfa55kCjCxxtRo9J7vxrXe0YLWPKVSO/9alzvb7SQZVtC+t/HrB+WMFiShfQd3z5mn7CM
+        wbItUOft+4QljZYcgzpv3y8sO4K37ZeWzCu8bZHcbr/gIiFRob95uwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="picCommande.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        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
+        ZaWUkwcAwwAAAABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>Objectif du jeu :
+Le joueur contrôle un personnage dans un labyrinthe. L'objectif est de collecter toutes les pièces dispersées à travers le labyrinthe tout en évitant les ennemis.
+
+Déroulement :
+
+Labyrinthe : Le jeu se déroule dans un labyrinthe composé de passages et de couloirs. Le joueur doit naviguer à travers ce labyrinthe pour trouver et collecter toutes les pièces.
+
+Pièces : Les pièces sont placées aléatoirement à travers le labyrinthe. Pour avancer dans le jeu, le joueur doit collecter toutes les pièces d'un niveau.
+
+Ennemis : Des ennemis se déplacent également à travers le labyrinthe. Si le joueur entre en contact avec un ennemi, il perd une vie.
+
+Vies : Le joueur commence avec trois vies. Chaque fois qu'il est capturé par un ennemi, il perd une vie. Si le joueur perd toutes ses vies, la partie est terminée et il doit recommencer depuis le début ou depuis un point de sauvegarde.</value>
+  </data>
+</root>

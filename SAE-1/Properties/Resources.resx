@@ -127,8 +127,23 @@
   <data name="cadre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\cadre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="commande" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\commande.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ennemi_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ennemi_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ennemi_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ennemi_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ennemi_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ennemi_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Goute" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Goute.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="maison" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\maison.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="menu" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\menu.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -136,7 +151,28 @@
   <data name="Nuage" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Nuage.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pause" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pause.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PersoVersBas" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PersoVersBas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PersoVersDroite" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PersoVersDroite.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PersoVersGauche" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PersoVersGauche.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="PersoVersHaut" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PersoVersHaut.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="piece" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\piece.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Pierre" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pierre.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="point_Vie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\point_Vie.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -12,6 +12,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SAE1BiblioBDD\SAE1BiblioBDD.csproj" />
+    <ProjectReference Include="..\SAE1BibliothèqueJeu\SAE1BibliothèqueJeu.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
