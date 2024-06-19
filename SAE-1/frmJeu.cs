@@ -16,10 +16,10 @@ namespace SAE_1
     {
         private Partie NouvellePartie;
 
-        private List<Ennemi> enemies = new List<Enemi>();
-        private Image EnemyImage;
-        private Image EnemyImage2;
-        private Image EnemyImage3;
+        private List<Ennemi> enemies = new List<Ennemi>();
+        private Image picEnnemi1;
+        private Image picEnnemi2;
+        private Image picEnnemi3;
         private int score; // Ajouter une variable pour le score
         private Label lblScore; // Ajouter un label pour afficher le score
         private PictureBox picPersonage;
@@ -93,7 +93,24 @@ namespace SAE_1
 
             this.Controls.Add(lblScore);
 
+            picEnnemi1 = Properties.Resources.ennemi_1;
+            picEnnemi2 = Properties.Resources.ennemi_2;
+            picEnnemi3 = Properties.Resources.ennemi_3;
+
+            enemies.Add(new Ennemi(10, 5, tileWidth, tileHeight, picEnnemi1));
+            enemies.Add(new Ennemi(15, 8, tileWidth, tileHeight, picEnnemi2));
+            enemies.Add(new Ennemi(5, 10, tileWidth, tileHeight, picEnnemi3));
+
             AjouterPoints(); // Ajouter les points
+            AjouterEnnemis();
+
+        }
+        private void AjouterEnnemis()
+        {
+            foreach (var ennemi in enemies)
+            {
+                pnlLabyrinthe.Controls.Add(ennemi.PictureBox);
+            }
         }
 
         private void UpdateTileSize()
@@ -133,7 +150,7 @@ namespace SAE_1
                             break;
                         case '.':
                             g.FillRectangle(Brushes.Transparent, j * tileWidth, i * tileHeight, tileWidth, tileHeight);
-                            g.FillEllipse(Brushes.Yellow, j * tileWidth + tileWidth / 4, i * tileHeight + tileHeight / 4, tileWidth / 2, tileHeight / 2);
+                            
                             break;
                         case '|':
                             g.FillRectangle(Brushes.LightBlue, j * tileWidth, i * tileHeight, tileWidth, tileHeight);
@@ -182,12 +199,12 @@ namespace SAE_1
         private void DeplacerPersonage(int variationX, int variationY)
         {
             // Récupérer la position actuelle du personnage
-            int currentX = picPersonage.Location.X;
-            int currentY = picPersonage.Location.Y;
+            int actuelPosX = picPersonage.Location.X;
+            int actuelPosY = picPersonage.Location.Y;
 
             // Calculer la nouvelle position désirée
-            int newX = currentX + (variationX * tileWidth);
-            int newY = currentY + (variationY * tileHeight);
+            int newX = actuelPosX + (variationX * tileWidth);
+            int newY = actuelPosY + (variationY * tileHeight);
 
             // Vérifier les limites du labyrinthe visuel
             if (newX >= 0 && newX + tileWidth <= pnlLabyrinthe.Width &&
@@ -252,6 +269,28 @@ namespace SAE_1
                     DeplacerPersonage(1, 0);
                     break;
             }
+            foreach (var ennemi in enemies)
+            {
+                //Logique de mouvement des ennemis (par exemple aléatoire)
+                Random random = new Random();
+                int direction = random.Next(4); // 0:droite, 1: gauche, 2: haut, 3: bas
+
+                switch (direction)
+                {
+                    case 0:
+                        ennemi.DeplacementEnnemis(1, 0);
+                        break;
+                    case 1:
+                        ennemi.DeplacementEnnemis(-1, 0);
+                        break;
+                    case 2:
+                        ennemi.DeplacementEnnemis(0, -1);
+                        break;
+                    case 3:
+                        ennemi.DeplacementEnnemis(0, 1);
+                        break;
+                }
+            }
         }
 
         private void frmJeu_FormClosing(object sender, FormClosingEventArgs e)
@@ -259,5 +298,34 @@ namespace SAE_1
             Application.Exit();
         }
     }
+    public class Ennemi
+    {
+        public PictureBox PictureBox { get; private set; }
+        private int tileWidth;
+        private int tileHeight;
+
+        public Ennemi(int x, int y, int width, int height, Image image)
+        {
+            PictureBox = new PictureBox
+            {
+                Image = image,
+                SizeMode = PictureBoxSizeMode.StretchImage,
+                Size = new Size(width, height),
+                Location = new Point(x * width, y * height),
+                BackColor = Color.Transparent
+            };
+
+            tileWidth = width;
+            tileHeight = height;
+        }
+
+        public void DeplacementEnnemis(int variationX, int variationY)
+        {
+            int newX = PictureBox.Location.X + (variationX * tileWidth);
+            int newY = PictureBox.Location.Y + (variationY * tileHeight);
+            PictureBox.Location = new Point(newX, newY);
+        }
+    }
+
 }
 
