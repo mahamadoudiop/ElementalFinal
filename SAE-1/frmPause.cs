@@ -41,7 +41,8 @@ namespace SAE_1
 
         private void btnSauvegardePartie_Click(object sender, EventArgs e)
         {
-
+            frmSauvegardePartie formSauvegardePartie = new frmSauvegardePartie();
+            formSauvegardePartie.Show();
         }
     }
 }

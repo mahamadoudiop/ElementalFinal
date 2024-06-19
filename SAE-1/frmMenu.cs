@@ -22,12 +22,12 @@ namespace SAE_1
         {
             frmOptions form6 = new frmOptions();
             form6.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void btnQuiter_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Application.Exit();
         }
 
  

@@ -31,11 +31,13 @@
             grpPartieTerminer = new GroupBox();
             btnRejouer = new Button();
             btnMenuPrincipal = new Button();
+            lblScoreFinal = new Label();
             grpPartieTerminer.SuspendLayout();
             SuspendLayout();
             // 
             // grpPartieTerminer
             // 
+            grpPartieTerminer.Controls.Add(lblScoreFinal);
             grpPartieTerminer.Controls.Add(btnRejouer);
             grpPartieTerminer.Controls.Add(btnMenuPrincipal);
             grpPartieTerminer.Location = new Point(47, 51);
@@ -67,6 +69,15 @@
             btnMenuPrincipal.UseVisualStyleBackColor = false;
             btnMenuPrincipal.Click += btnMenuPrincipal_Click;
             // 
+            // lblScoreFinal
+            // 
+            lblScoreFinal.AutoSize = true;
+            lblScoreFinal.Location = new Point(148, 32);
+            lblScoreFinal.Name = "lblScoreFinal";
+            lblScoreFinal.Size = new Size(38, 15);
+            lblScoreFinal.TabIndex = 5;
+            lblScoreFinal.Text = "label1";
+            // 
             // frmPartieTerminer
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -78,6 +89,7 @@
             Text = "PARIE TERMINER";
             Load += frmPartieTerminer_Load;
             grpPartieTerminer.ResumeLayout(false);
+            grpPartieTerminer.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -86,5 +98,6 @@
         private GroupBox grpPartieTerminer;
         private Button btnRejouer;
         private Button btnMenuPrincipal;
+        private Label lblScoreFinal;
     }
 }

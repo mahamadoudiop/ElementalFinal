@@ -56,6 +56,7 @@
             btnRetour.Size = new Size(70, 67);
             btnRetour.TabIndex = 6;
             btnRetour.UseVisualStyleBackColor = false;
+            btnRetour.Click += btnRetour_Click;
             // 
             // grbPseudo
             // 

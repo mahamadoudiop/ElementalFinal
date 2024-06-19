@@ -12,9 +12,10 @@ namespace SAE_1
 {
     public partial class frmPartieTerminer : Form
     {
-        public frmPartieTerminer()
+        public frmPartieTerminer(int score)
         {
             InitializeComponent();
+            lblScoreFinal.Text = "Votre score final est : " + score.ToString();
         }
 
         private void frmPartieTerminer_Load(object sender, EventArgs e)

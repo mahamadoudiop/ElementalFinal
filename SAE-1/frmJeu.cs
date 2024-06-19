@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
@@ -15,6 +16,8 @@ namespace SAE_1
     public partial class frmJeu : Form
     {
         private Partie NouvellePartie;
+        private int pointsRestants;
+
 
         private List<Ennemi> enemies = new List<Ennemi>();
         private Image picEnnemi1;
@@ -108,11 +111,28 @@ namespace SAE_1
             AjouterEnnemis();
 
         }
+
+        private void CompterPointsRestants()
+        {
+            pointsRestants = 0;
+            for (int i = 0; i < labyrinthe.GetLength(0); i++)
+            {
+                for (int j = 0; j < labyrinthe.GetLength(1); j++)
+                {
+                    if (labyrinthe[i, j] == '.')
+                    {
+                        pointsRestants++;
+                    }
+                }
+            }
+        }
+
         private void AjouterEnnemis()
         {
             foreach (var ennemi in enemies)
             {
                 pnlLabyrinthe.Controls.Add(ennemi.PictureBox);
+                ennemi.PictureBox.BringToFront();
             }
         }
 
@@ -126,13 +146,17 @@ namespace SAE_1
         private void pnlLabyrinthe_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-
             RedessinerLabyrinthe(g);
+            foreach (var ennemi in enemies)
+            {
+                ennemi.PictureBox.BringToFront();
+            }
         }
 
         private void pnlLabyrinthe_Resize(object sender, EventArgs e)
         {
             UpdateTileSize();
+            picPersonage.BringToFront();
             pnlLabyrinthe.Invalidate(); // Forcer le redessin lorsque le panel est redimensionné
         }
 
@@ -150,10 +174,6 @@ namespace SAE_1
                     {
                         case 'W':
                             g.FillRectangle(Brushes.Black, j * tileWidth, i * tileHeight, tileWidth, tileHeight);
-                            break;
-                        case '.':
-                            g.FillRectangle(Brushes.Transparent, j * tileWidth, i * tileHeight, tileWidth, tileHeight);
-
                             break;
                         case '|':
                             g.FillRectangle(Brushes.LightBlue, j * tileWidth, i * tileHeight, tileWidth, tileHeight);
@@ -199,197 +219,82 @@ namespace SAE_1
             pnlLabyrinthe.Invalidate(); // Forcer le redessin initial
         }
 
-        private void DeplacerPersonage(int variationX, int variationY)
+        private void DeplacerPersonage(int deltaX, int deltaY)
         {
-            int actuelPosX = picPersonage.Location.X;
-            int actuelPosY = picPersonage.Location.Y;
+            int XActuel = picPersonage.Location.X;
+            int YActuel = picPersonage.Location.Y;
 
-            // Calculer la nouvelle position désirée (avancer d'une seule unité de grille)
-            int newX = actuelPosX + (variationX * tileWidth);
-            int newY = actuelPosY + (variationY * tileHeight);
+            int newX = XActuel + deltaX;
+            int newY = YActuel + deltaY;
 
-            // Vérifier les limites du labyrinthe visuel
-            if (newX >= 0 && newX + picPersonage.Width <= pnlLabyrinthe.Width &&
-                newY >= 0 && newY + picPersonage.Height <= pnlLabyrinthe.Height)
+            // Vérifier les limites du panel et les collisions avec les murs
+            if (newX >= 0 && newX + tileWidth <= pnlLabyrinthe.Width &&
+                newY >= 0 && newY + tileHeight <= pnlLabyrinthe.Height)
             {
-                // Convertir les nouvelles coordonnées en indices de la grille
                 int gridX = newX / tileWidth;
                 int gridY = newY / tileHeight;
 
-                // Vérifier si la case de la grille est accessible (pas un mur)
                 if (gridX >= 0 && gridX < labyrintheColonnes && gridY >= 0 && gridY < labyrintheLignes && labyrinthe[gridY, gridX] != 'W')
                 {
-                    // Vérifier s'il y a un point à cet emplacement
                     if (labyrinthe[gridY, gridX] == '.')
                     {
-                        // Augmenter le score
                         score += 1;
-                        lblScore.Text = "Score: " + score; // Mettre à jour le label du score
-
-                        // Retirer le point du labyrinthe
+                        lblScore.Text = "Score: " + score;
                         labyrinthe[gridY, gridX] = ' ';
 
-                        // Retirer le PictureBox du point
-                        Control controlToRemove = null;
                         foreach (Control control in pnlLabyrinthe.Controls)
                         {
                             if (control is PictureBox && control.Location == new Point(gridX * tileWidth, gridY * tileHeight))
                             {
-                                controlToRemove = control;
+                                pnlLabyrinthe.Controls.Remove(control);
+                                control.Dispose();
                                 break;
                             }
                         }
 
-                        // Supprimer le contrôle du panel
-                        if (controlToRemove != null)
+                        // Mettre à jour les points restants
+                        pointsRestants--;
+
+                        // Vérifier si tous les points ont été collectés
+                        if (pointsRestants == 0)
                         {
-                            pnlLabyrinthe.Controls.Remove(controlToRemove);
-                            controlToRemove.Dispose();
+                            // Ouvrir le formulaire de fin de partie
+                            frmPartieTerminer frmPartieTerminer = new frmPartieTerminer(score);
+                            frmPartieTerminer.ShowDialog();
+                            this.Close(); // Fermer le formulaire de jeu actuel
                         }
                     }
-
-                    // Mettre à jour la position du personnage après avoir manipulé la pièce
                     picPersonage.Location = new Point(newX, newY);
-                    picPersonage.BringToFront();
                 }
             }
         }
 
-
-        //private void DeplacerPersonage(int variationX, int variationY)
-        //{
-
-        //    int actuelPosX = picPersonage.Location.X;
-        //    int actuelPosY = picPersonage.Location.Y;
-
-        //    // Calculer la nouvelle position désirée (avancer d'une seule unité de grille)
-        //    int newX = actuelPosX + (variationX * tileWidth );
-        //    int newY = actuelPosY + (variationY * tileHeight);
-
-        //    // Vérifier les limites du labyrinthe visuel
-        //    if (newX >= 0 && newX + tileWidth  <= pnlLabyrinthe.Width &&
-        //        newY >= 0 && newY + tileHeight  <= pnlLabyrinthe.Height)
-        //    {
-        //        // Convertir les nouvelles coordonnées en indices de la grille
-        //        int gridX = newX / (tileWidth);
-        //        int gridY = newY /( tileHeight);
-
-        //        // Vérifier si la case de la grille est accessible (pas un mur)
-        //        if (gridX >= 0 && gridX < labyrintheColonnes && gridY >= 0 && gridY < labyrintheLignes && labyrinthe[gridY, gridX] != 'W')
-        //        {
-        //            // Vérifier s'il y a un point à cet emplacement
-        //            if (labyrinthe[gridY, gridX] == '.')
-        //            {
-        //                // Augmenter le score
-        //                score += 1;
-        //                lblScore.Text = "Score: " + score; // Mettre à jour le label du score
-
-        //                // Retirer le point du labyrinthe
-        //                labyrinthe[gridY, gridX] = ' ';
-
-        //                // Retirer le PictureBox du point
-        //                Control controlToRemove = null;
-        //                foreach (Control control in pnlLabyrinthe.Controls)
-        //                {
-        //                    if (control is PictureBox && control.Location == new Point(gridX * tileWidth, gridY * tileHeight))
-        //                    {
-        //                        controlToRemove = control;
-        //                        break;
-        //                    }
-        //                }
-
-        //                // Supprimer le contrôle du panel
-        //                if (controlToRemove != null)
-        //                {
-        //                    pnlLabyrinthe.Controls.Remove(controlToRemove);
-        //                    controlToRemove.Dispose();
-        //                }
-        //            }
-
-        //            // Mettre à jour la position du personnage après avoir manipulé la pièce
-        //            picPersonage.Location = new Point(newX, newY);
-        //            picPersonage.BringToFront();
-        //        }
-        //    }
-        //}
-
-        //private void DeplacerPersonage(int variationX, int variationY)
-        //{
-        //    int actuelPosX = picPersonage.Location.X;
-        //    int actuelPosY = picPersonage.Location.Y;
-
-        //    // Calculer la nouvelle position désirée (avancer d'une seule unité de grille)
-        //    int newX = actuelPosX + (variationX * tileWidth );
-        //    int newY = actuelPosY + (variationY * tileHeight );
-
-        //    // Vérifier les limites du labyrinthe visuel
-        //    if (newX >= 0 && newX + tileWidth  <= pnlLabyrinthe.Width &&
-        //        newY >= 0 && newY + tileHeight  <= pnlLabyrinthe.Height)
-        //    {
-        //        // Convertir les nouvelles coordonnées en indices de la grille
-        //        int gridX = newX / (tileWidth/2 );
-        //        int gridY = newY / (tileHeight/2);
-
-
-        //        // Vérifier si la case de la grille est accessible (pas un mur)
-        //        if (gridX >= 0 && gridX < labyrintheColonnes && gridY >= 0 && gridY < labyrintheLignes && labyrinthe[gridY, gridX] != 'W')
-        //        {
-        //            // Mettre à jour la position du personnage
-        //            picPersonage.Location = new Point(newX, newY);
-        //            picPersonage.BringToFront();
-
-        //            // Vérifier s'il y a un point à cet emplacement
-        //            if (labyrinthe[gridY, gridX] == '.')
-        //            {
-        //                // Augmenter le score
-        //                score += 1;
-        //                lblScore.Text = "Score: " + score; // Mettre à jour le label du score
-
-        //                // Retirer le point du labyrinthe
-        //                labyrinthe[gridY, gridX] = ' ';
-
-        //                // Retirer le PictureBox du point
-        //                foreach (Control control in pnlLabyrinthe.Controls)
-        //                {
-        //                    if (control is PictureBox && control.Location == new Point(gridX * tileWidth, gridY * tileHeight))
-        //                    {
-        //                        pnlLabyrinthe.Controls.Remove(control);
-        //                        control.Dispose();
-        //                        break;
-        //                    }
-        //                }
-        //            }
-        //        }
-        //        picPersonage.Location = new Point(newX, newY);
-
-        //    }
-
-
-        //}
-
         private void frmJeu_KeyDown(object sender, KeyEventArgs e)
         {
-
+            int deltaX = 0;
+            int deltaY = 0;
 
             switch (e.KeyCode)
             {
-                case Keys.Z:
-                    picPersonage.Image = Perso_Haut;
-                    DeplacerPersonage(0, -1);
-                    break;
-                case Keys.S:
-                    picPersonage.Image = Perso_Bas;
-                    DeplacerPersonage(0, 1);
+                case Keys.D:
+                    picPersonage.Image = Perso_Droite;
+                    deltaX = tileWidth; // Déplacement vers la droite
                     break;
                 case Keys.Q:
                     picPersonage.Image = Perso_Gauche;
-                    DeplacerPersonage(-1, 0);
+                    deltaX = -tileWidth; // Déplacement vers la gauche
                     break;
-                case Keys.D:
-                    picPersonage.Image = Perso_Droite;
-                    DeplacerPersonage(1, 0);
+                case Keys.Z:
+                    picPersonage.Image = Perso_Haut;
+                    deltaY = -tileHeight; // Déplacement vers le haut
+                    break;
+                case Keys.S:
+                    picPersonage.Image = Perso_Bas;
+                    deltaY = tileHeight; // Déplacement vers le bas
                     break;
             }
+
+            DeplacerPersonage(deltaX, deltaY);
 
             foreach (var ennemi in enemies)
             {
@@ -444,21 +349,22 @@ namespace SAE_1
 
             tileWidth = width;
             tileHeight = height;
+            this.labyrinthe = labyrinthe;
         }
 
-        public void DeplacementEnnemis(int variationX, int variationY)
+        public void DeplacementEnnemis(int deltaX, int deltaY)
         {
-            int newX = PictureBox.Location.X + (variationX * tileWidth);
-            int newY = PictureBox.Location.Y + (variationY * tileHeight);
+            int newX = PictureBox.Location.X + (deltaX * tileWidth);
+            int newY = PictureBox.Location.Y + (deltaY * tileHeight);
 
             int gridX = newX / tileWidth;
             int gridY = newY / tileHeight;
 
-            //if (gridX >= 0 && gridX < labyrinthe.GetLength(1) && gridY >= 0 && gridY < labyrinthe.GetLength(0) && labyrinthe[gridY, gridX] != 'W')
-            //{
-            //    PictureBox.Location = new Point(newX, newY);
-            //    PictureBox.BringToFront(); // Assurez-vous que les ennemis sont au-dessus
-            //}
+            if (gridX >= 0 && gridX < labyrinthe.GetLength(1) && gridY >= 0 && gridY < labyrinthe.GetLength(0) && labyrinthe[gridY, gridX] != 'W')
+            {
+                PictureBox.Location = new Point(newX, newY);
+                PictureBox.BringToFront();
+            }
         }
     }
 
